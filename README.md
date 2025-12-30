@@ -95,14 +95,6 @@ RedLightTorch/
 └── Info.plist                    # App configuration
 ```
 
-## Future Enhancements
-
-- [ ] Timer function (auto-off after set duration)
-- [ ] Customizable red tones (deep red, orange-red, etc.)
-- [ ] Widget support for quick access
-- [ ] Apple Watch companion app
-- [ ] Flashlight integration for dual-mode torch
-
 ## Contributing
 
 This is a personal project, but suggestions and improvements are welcome! Feel free to open issues or submit pull requests.
