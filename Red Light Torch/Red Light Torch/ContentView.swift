@@ -4,6 +4,7 @@ struct ContentView: View {
     @State private var isLightOn = true
     @State private var brightness: Double = 1.0
     @State private var originalBrightness: Double = UIScreen.main.brightness
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         ZStack {
@@ -32,6 +33,18 @@ struct ContentView: View {
                 UIScreen.main.brightness = 1.0
             } else {
                 UIScreen.main.brightness = originalBrightness
+            }
+        }
+        .onChange(of: scenePhase) { oldPhase, newPhase in
+            switch newPhase {
+            case .active:
+                if isLightOn {
+                    UIScreen.main.brightness = 1.0
+                }
+            case .inactive, .background:
+                UIScreen.main.brightness = originalBrightness
+            @unknown default:
+                break
             }
         }
         .onAppear {
